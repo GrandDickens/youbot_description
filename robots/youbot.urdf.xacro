@@ -20,6 +20,9 @@
 
   <!-- youbot gripper -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.urdf.xacro" />
+
+  <!-- youbot camera -->
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_camera/camera.urdf.xacro" />
  
   <!-- controller manager -->
   <xacro:include filename="$(find youbot_description)/controller/ros_controller.urdf.xacro" />
@@ -55,10 +58,13 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:youbot_gripper>
 
+  <xacro:youbot_camera name="camera" parent="arm_link_5">
+    <origin xyz="-0.07 0.00 0" rpy="0 -1.2 0" />
+  </xacro:youbot_camera>
+
   <!-- base laser front -->
   <xacro:hokuyo_urg04_laser name="base_laser_front" parent="base" ros_topic="base_scan" update_rate="10" min_angle="-1.57" max_angle="1.57">
     <origin xyz="0.3 0 -0.03" rpy="0 0 0"/>
   </xacro:hokuyo_urg04_laser>
-
   
 </robot>
