@@ -6,7 +6,7 @@
         <xacro:property name="threshold" value="0.001" />
 
 	<!-- fingers limits, values are in meters -->
-	<xacro:property name="finger_joint" value="${0.023 / 2.0}" />	
+	<xacro:property name="finger_joint" value="${0.035 / 2.0}" />	
 	<xacro:property name="finger_joint_soft" value="${(0.023 - threshold) / 2.0}" />	
    
 	
