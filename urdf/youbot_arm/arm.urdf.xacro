@@ -10,6 +10,17 @@
 
 
 	<xacro:macro name="youbot_arm" params="parent name *origin">
+		<xacro:property name="fault1" value="0.15" />
+		<xacro:property name="fault2" value="0.09" />
+		<xacro:property name="fault3" value="0.3" />
+		<xacro:property name="fault4" value="0.05" />
+		<xacro:property name="fault5" value="0.3" />
+
+		<!--<xacro:property name="fault1" value="0.15" />
+		<xacro:property name="fault2" value="0.09" />
+		<xacro:property name="fault3" value="0.2" />
+		<xacro:property name="fault4" value="0.05" />
+		<xacro:property name="fault5" value="0.3" />-->
 
 		<!-- joint between base_link and arm_0_link -->
 		<joint name="${name}_joint_0" type="fixed" >
@@ -72,7 +83,7 @@
 			</inertial>
 			
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="0 0 ${fault1}" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm1.dae" />
 				</geometry>
@@ -81,7 +92,7 @@
 			
 			<collision>
 				<!--<origin xyz="0 0 -0.003" rpy="0 0 0" />-->
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="0 0 ${fault1}" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm1_convex.dae" />
 					<!--<cylinder length="0.102" radius="0.080"/>-->
@@ -108,7 +119,7 @@
 			</inertial>
 			
 			<visual>
-			<origin xyz="0 -0.032 0.078" rpy="0 0 0" />
+			<origin xyz="0 -0.032 0.078" rpy="${fault2} 0 0" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm2.dae" />
 				</geometry>
@@ -117,7 +128,7 @@
 			
 			<collision>
 				<!--<origin xyz="0.001 -0.041 0.074" rpy="0 0 0" />-->
-				<origin xyz="0 -0.032 0.078" rpy="0 0 0" />
+				<origin xyz="0 -0.032 0.078" rpy="${fault2} 0 0" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm2_convex.dae" />
 					<!--<box size="0.074 0.082 0.222"/>-->
@@ -152,7 +163,7 @@
 			</inertial>
 			
 			<visual>
-				<origin xyz="0.000 0.028 0.079" rpy="0 0 0" />
+				<origin xyz="0.000 0.028 0.079" rpy="${fault3} 0 0" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm3.dae" />
 				</geometry>
@@ -161,7 +172,7 @@
 			
 			<collision>
 				<!--<origin xyz="0.000 0.025 0.067" rpy="0 0 0" />-->
-				<origin xyz="0.000 0.028 0.079" rpy="0 0 0" />
+				<origin xyz="0.000 0.028 0.079" rpy="${fault3} 0 0" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm3_convex.dae" />
 					<!--<box size="0.064 0.054 0.192"/>-->
@@ -188,7 +199,7 @@
 			</inertial>
 		
 			<visual>
-				<origin xyz="0 -0.010 0.029" rpy="0 0 0"/>
+				<origin xyz="0 -0.010 0.029" rpy="${fault4} 0 0"/>
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm4.dae" />
 				</geometry>
@@ -197,7 +208,7 @@
 			
 			<collision>
 				<!--<origin xyz="0 0 0.026" rpy="0 0 0" />-->
-				<origin xyz="0 -0.010 0.029" rpy="0 0 0"/>
+				<origin xyz="0 -0.010 0.029" rpy="${fault4} 0 ${fault4}"/>
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm4_convex.dae" />
 					<!--<box size="0.058 0.100 0.118"/>-->
@@ -224,7 +235,7 @@
 			</inertial>
 			
 			<visual>
-				<origin xyz="0.003 0 -0.034" rpy="0 0 0" />
+				<origin xyz="0.003 0 -0.034" rpy="0 0 ${fault5}" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm5.dae" />
 				</geometry>
@@ -232,7 +243,7 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0.003 0 -0.034" rpy="0 0 0" />
+				<origin xyz="0.003 0 -0.034" rpy="0 0 ${fault5}" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm5_convex.dae" />
 					<!--<box size="0.054 0.096 0.030"/>-->

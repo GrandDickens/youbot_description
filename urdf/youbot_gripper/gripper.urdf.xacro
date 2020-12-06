@@ -9,6 +9,7 @@
 	<xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/limits.urdf.xacro" />
 
 	<xacro:macro name="youbot_gripper" params="parent name *origin">
+		<xacro:property name="fault" value="0.3" />
 
 		<!-- joint between arm_7_link and sdh_palm_link -->
 		<joint name="${name}_palm_joint" type="fixed" >
@@ -19,13 +20,13 @@
 
 		<link name="${name}_palm_link">
 			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<origin xyz="0 0 0" rpy="0 0 ${fault}"/>
 				<mass value="0.1"/>
 				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 			</inertial>
 			
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="0 0 ${fault}" />
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_gripper/palm.dae" />
 				</geometry>
