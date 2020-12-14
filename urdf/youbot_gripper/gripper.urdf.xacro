@@ -7,6 +7,7 @@
 	<xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.gazebo.xacro" />
 	<xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.transmission.xacro" />
 	<xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/limits.urdf.xacro" />
+	<xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/mark.urdf.xacro" />
 
 	<xacro:macro name="youbot_gripper" params="parent name *origin">
 		<xacro:property name="fault" value="0.3" />
@@ -113,6 +114,9 @@
 			</collision>
 		</link>
 
+		<xacro:gripper_mark name="mark" parent="${name}_palm_link">
+			<origin xyz="0 0 0.022" rpy="0 0 0" />
+		</xacro:gripper_mark>
 		
 		<!-- extensions -->
 		<xacro:youbot_gripper_gazebo name="${name}" />
